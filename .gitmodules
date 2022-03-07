@@ -1,0 +1,6 @@
+[submodule "scripts/mpv-twitch-chat"]
+	path = scripts/mpv-twitch-chat
+	url = https://github.com/CrendKing/mpv-twitch-chat/
+[submodule "scripts/webtorrent-hook"]
+	path = scripts/webtorrent-hook
+	url = https://github.com/noctuid/mpv-webtorrent-hook
