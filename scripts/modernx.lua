@@ -67,7 +67,7 @@ local user_opts = {
     blur_intensity = 150,       -- adjust the strength of the OSC blur
     osc_color = "000000",       -- accent of the OSC and the title bar
 --  seekbarfg_color = "E39C42", -- color of the seekbar progress and handle
-    seekbarfg_color = "C7794A", -- color of the seekbar progress and handle
+    seekbarfg_color = "9E5315", -- color of the seekbar progress and handle
     seekbarbg_color = "FFFFFF", -- color of the remaining seekbar
                                 -- do note that ASS tag's color code is used,
                                 -- which is BGR, instead of the standard RGB.

@@ -677,7 +677,8 @@ local function update_ass()
     if dir_name == "" then dir_name = "ROOT" end
     append(style.header)
     append(ass_escape(dir_name, style.cursor.."\\\239\187\191n"..style.header))
-    append('\\N ----------------------------------------------------')
+--  append('\\N ----------------------------------------------------')
+    append('\\N')
     newline()
 
     if #state.list < 1 then
