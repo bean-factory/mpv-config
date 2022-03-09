@@ -1975,7 +1975,7 @@ function osc_init()
     ne = new_element("cy_chat", "button")
     ne.content = "\xEF\x89\xA1"
     ne.eventresponder["mbtn_left_up"] =
-        function () mp.commandv("run", "zsh", "--", "/home/mridul/.config/mpv/comments.sh", "${filename}") end
+        function () mp.commandv("keydown", "shift+c") end
 
     --tog_fs
     ne = new_element("tog_fs", "button")
