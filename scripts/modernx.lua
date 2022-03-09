@@ -1973,7 +1973,7 @@ function osc_init()
 
     --cy_chat
     ne = new_element("cy_chat", "button")
-    ne.content = "\xEF\x89\xA1"
+    ne.content = "\xEE\xA4\xAA"
     ne.eventresponder["mbtn_left_up"] =
         function () mp.commandv("keydown", "shift+c") end
 
