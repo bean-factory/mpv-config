@@ -1686,6 +1686,11 @@ layouts = function ()
     lo.geometry = {x = 137, y = refY - 40, an = 5, w = 24, h = 24}
     lo.style = osc_styles.smallButtons
 
+    -- Chat and comments
+    lo = add_layout("cy_chat")
+    lo.geometry = {x = 187, y = refY - 40, an = 5, w = 24, h = 24}
+    lo.style = osc_styles.smallButtons
+
     -- Toggle fullscreen
     lo = add_layout("tog_fs")
     lo.geometry = {x = osc_geo.w - 37, y = refY - 40, an = 5, w = 24, h = 24}
@@ -1965,6 +1970,12 @@ function osc_init()
         function () set_track("sub", -1) end
     ne.eventresponder["shift+mbtn_left_down"] =
         function () show_message(get_tracklist("sub"), 2) end
+
+    --cy_chat
+    ne = new_element("cy_chat", "button")
+    ne.content = "\xEF\x89\xA1"
+    ne.eventresponder["mbtn_left_up"] =
+        function () mp.commandv("run", "zsh", "--", "/home/mridul/.config/mpv/comments.sh", "${filename}") end
 
     --tog_fs
     ne = new_element("tog_fs", "button")
