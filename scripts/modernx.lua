@@ -1975,7 +1975,21 @@ function osc_init()
     ne = new_element("cy_chat", "button")
     ne.content = "\xEE\xA4\xAA"
     ne.eventresponder["mbtn_left_up"] =
-        function () mp.commandv("keydown", "shift+c") end
+    --    function () mp.commandv("keydown", "shift+c") end
+    --    function () show_message(mp.get_property_osd("filename")) end
+        function ()
+        local vidname = mp.get_property_osd("filename")
+        if string.match(vidname, '%.') then
+        show_message("Not a Twitch or Youtube video")
+        else
+            if string.find(vidname, 'watch', 1, true) then
+                show_message("Opening Youtube Comments")
+            else
+                show_message("Opening Twitch Chat")
+            end
+        mp.commandv("run", "zsh", "--", "/home/mridul/.config/mpv/comments.sh", vidname)
+        end
+        end
 
     --tog_fs
     ne = new_element("tog_fs", "button")
@@ -2868,3 +2882,17 @@ mp.add_key_binding(nil, "visibility", function() visibility_mode("cycle") end)
 
 set_virt_mouse_area(0, 0, 0, 0, "input")
 set_virt_mouse_area(0, 0, 0, 0, "window-controls")
+
+mp.add_key_binding("shift+c", "open_chat", function ()
+        local vidname = mp.get_property_osd("filename")
+        if string.match(vidname, '%.') then
+        show_message("Not a Twitch or Youtube video")
+        else
+            if string.find(vidname, 'watch', 1, true) then
+                show_message("Opening Youtube Comments")
+            else
+                show_message("Opening Twitch Chat")
+            end
+        mp.commandv("run", "zsh", "--", "/home/mridul/.config/mpv/comments.sh", vidname)
+        end
+        end)

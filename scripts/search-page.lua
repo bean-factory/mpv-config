@@ -510,7 +510,7 @@ end
 function list_meta:get_input(get_flags)
     ui.get_user_input(function(input)
         self:handle_query_input(input, get_flags)
-    end, {id = "search_term", text = "{\\fs30\\1c&H0&\\1c&HFFFFFF&}Enter query for "..(get_flags and "advanced " or "")..self.type.." search:", replace = true})
+    end, {id = "search_term", text = "Enter query for "..(get_flags and "advanced " or "")..self.type.." search:", replace = true})
 
     if get_flags then
         ui.get_user_input(function(input, err)
