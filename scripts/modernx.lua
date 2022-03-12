@@ -1214,7 +1214,7 @@ function render_elements(master_ass)
 
             elem_ass:append(buttontext)
 
-            -- add tooltip for audio and subtitle tracks
+            -- add tooltip for audio and8subtitle tracks
             if not (element.tooltipF == nil) and element.enabled then
                 if mouse_hit(element) then
                     local tooltiplabel = element.tooltipF
@@ -1973,21 +1973,26 @@ function osc_init()
 
     --cy_chat
     ne = new_element("cy_chat", "button")
-    ne.content = "\xEE\xA4\xAA"
+    ne.content = function ()
+        local vidname = mp.get_property_osd("filename")
+        if string.match(vidname, '%.') then
+        return("\x20")
+        else
+        return("\xEE\xA4\xAA")
+        end
+        end
     ne.eventresponder["mbtn_left_up"] =
-    --    function () mp.commandv("keydown", "shift+c") end
-    --    function () show_message(mp.get_property_osd("filename")) end
         function ()
         local vidname = mp.get_property_osd("filename")
         if string.match(vidname, '%.') then
-        show_message("Not a Twitch or Youtube video")
         else
             if string.find(vidname, 'watch', 1, true) then
                 show_message("Opening Youtube Comments")
+                mp.commandv("run", "zsh", "--", mp.command_native({"expand-path", "~~/"}).."/comments.sh", vidname)
             else
                 show_message("Opening Twitch Chat")
+                mp.commandv("run", "google-chrome-stable", "--app=https://twitch.tv/"..vidname.."/chat")
             end
-        mp.commandv("run", "zsh", "--", "/home/mridul/.config/mpv/comments.sh", vidname)
         end
         end
 
@@ -2890,9 +2895,10 @@ mp.add_key_binding("shift+c", "open_chat", function ()
         else
             if string.find(vidname, 'watch', 1, true) then
                 show_message("Opening Youtube Comments")
+                mp.commandv("run", "zsh", "--", mp.command_native({"expand-path", "~~/"}).."/comments.sh", vidname)
             else
                 show_message("Opening Twitch Chat")
+                mp.commandv("run", "google-chrome-stable", "--app=https://twitch.tv/"..vidname.."/chat")
             end
-        mp.commandv("run", "zsh", "--", "/home/mridul/.config/mpv/comments.sh", vidname)
         end
         end)
