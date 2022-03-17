@@ -1973,6 +1973,19 @@ function osc_init()
 
     --cy_chat
     ne = new_element("cy_chat", "button")
+    ne.tooltip_style = osc_styles.tooltip
+    ne.tooltipF = function ()
+        local vidname = mp.get_property_osd("filename")
+        if string.match(vidname, '%.') then
+		return ""
+        else
+            if string.find(vidname, 'watch', 1, true) then
+		    return "Open Youtube comments"
+            else
+		    return "Open Twitch chat"
+            end
+        end
+	end
     ne.content = function ()
         local vidname = mp.get_property_osd("filename")
         if string.match(vidname, '%.') then
