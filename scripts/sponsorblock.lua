@@ -52,7 +52,7 @@ local options = {
     min_duration = 1,
 
     -- Fade audio for smoother transitions
-    audio_fade = false,
+    audio_fade = true,
 
     -- Audio fade step, applied once every 100ms until cap is reached
     audio_fade_step = 10,
