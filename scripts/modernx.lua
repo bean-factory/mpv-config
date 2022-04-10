@@ -1991,7 +1991,11 @@ function osc_init()
         if string.match(vidname, '%.') then
         return("\x20")
         else
-        return("\xEE\xA4\xAA")
+            if string.find(vidname, 'watch', 1, true) then
+        	    return("\xEE\xA4\xAA")
+            else
+        	    return("\xEE\xA4\xAB")
+            end
         end
         end
     ne.eventresponder["mbtn_left_up"] =
