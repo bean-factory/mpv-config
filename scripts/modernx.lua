@@ -2008,7 +2008,7 @@ function osc_init()
                 mp.commandv("run", "zsh", "--", mp.command_native({"expand-path", "~~/"}).."/comments.sh", vidname)
             else
                 show_message("Opening Twitch Chat")
-                mp.commandv("run", "chromium", "--app=https://twitch.tv/"..vidname.."/chat", "--window-size=620,700")
+                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://twitch.tv/"..vidname.."/chat", "--qt-arg", "geometry", "580x750")
             end
         end
         end

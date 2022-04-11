@@ -23,7 +23,7 @@ function select_files_kdialog()
     end
         
      file_select = utils.subprocess({
-        args = {'kdialog', '--attach='..focus.stdout..'' , '--title=Select Files', '--icon=mpv', '--multiple', '--separate-output', '--getopenfilename', ''..directory..'', 'Multimedia Files (*.3ga *.egp *.3gpp *.3g2 *.3gp2 *.egpp2 *.m4v *.f4v *.mp2 *.mpeg *.vob *.ogv *.mov *.moov *.qtrv *.tv *.rvx *.webm *.flv *.mkv *.wmp *.wmv *.avi *.avf *.divx *.ogm *.mp4 *.aac *.ac3 *.flac *.mp2 *.mp3 *.m4a *.ogg *.oga *.ra *.rax *.webm *.ape *.mka *.m3u *.m3u8 *.vlc *.wma *.opus *.real *.pls *.tta *.wav)'},
+        args = {'kdialog', '--attach='..focus.stdout..'' , '--title=Select Files', '--icon=mpv', '--multiple', '--separate-output', '--getopenfilename', ''..directory..'', 'Multimedia Files (*.3ga *.egp *.3gpp *.3g2 *.3gp2 *.egpp2 *.m4v *.f4v *.mp2 *.mpeg *.vob *.ogv *.mov *.moov *.qtrv *.tv *.rvx *.webm *.flv *.mkv *.wmp *.wmv *.avi *.avf *.divx *.ogm *.mp4 *.aac *.ac3 *.flac *.mp2 *.mp3 *.m4a *.ogg *.oga *.ra *.rax *.webm *.ape *.mka *.m3u *.m3u8 *.vlc *.wma *.opus *.real *.pls *.tta *.wav *.gif)'},
         cancellable = false,
     })
 end
