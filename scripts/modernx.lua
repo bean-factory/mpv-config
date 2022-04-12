@@ -2005,7 +2005,7 @@ function osc_init()
         else
             if string.find(vidname, 'watch', 1, true) then
                 show_message("Opening Youtube Comments")
-                mp.commandv("run", "zsh", "--", mp.command_native({"expand-path", "~~/"}).."/comments.sh", vidname)
+                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://youtube.com/"..vidname.."/", "--qt-arg", "geometry", "580x750")
             else
                 show_message("Opening Twitch Chat")
                 mp.commandv("run", "org.qutebrowser.qutebrowser", "https://twitch.tv/"..vidname.."/chat", "--qt-arg", "geometry", "580x750")
@@ -2908,15 +2908,13 @@ set_virt_mouse_area(0, 0, 0, 0, "window-controls")
 mp.add_key_binding("shift+c", "open_chat", function ()
         local vidname = mp.get_property_osd("filename")
         if string.match(vidname, '%.') then
-        show_message("Not a Twitch or Youtube video")
         else
             if string.find(vidname, 'watch', 1, true) then
                 show_message("Opening Youtube Comments")
-                mp.commandv("run", "zsh", "--", mp.command_native({"expand-path", "~~/"}).."/comments.sh", vidname)
+                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://youtube.com/"..vidname.."/", "--qt-arg", "geometry", "580x750")
             else
                 show_message("Opening Twitch Chat")
-                mp.commandv("run", "chromium", "--app=https://twitch.tv/"..vidname.."/chat", "--window-size=620,700")
-
+                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://twitch.tv/"..vidname.."/chat", "--qt-arg", "geometry", "580x750")
             end
         end
         end)
