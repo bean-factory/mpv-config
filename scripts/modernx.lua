@@ -8,6 +8,9 @@
 -- forked again by dexeonify
 -- https://github.com/dexeonify/mpv-config/blob/main/scripts/modernx.lua
 
+-- forked again by Kryptos_123
+-- https://github.com/Kryptos-123/mpv-config/blob/main/scripts/modernx.lua
+
 local ipairs,loadfile,pairs,pcall,tonumber,tostring = ipairs,loadfile,pairs,pcall,tonumber,tostring
 local debug,io,math,os,string,table,utf8 = debug,io,math,os,string,table,utf8
 local min,max,floor,ceil,huge = math.min,math.max,math.floor,math.ceil,math.huge
@@ -60,7 +63,7 @@ local user_opts = {
     livemarkers = true,         -- update seekbar chapter markers on duration change
     chapters_osd = true,        -- whether to show chapters OSD on next/prev
     playlist_osd = true,        -- whether to show playlist OSD on next/prev
-    chapter_fmt = "Chapter: %s", -- chapter print format for seekbar-hover. "no" to disable
+    chapter_fmt = " %s", -- chapter print format for seekbar-hover. "no" to disable
 
     titlefont = "",             -- font used for the title above OSC and
                                 -- in the windows controls bar
@@ -2158,12 +2161,10 @@ function osc_init()
     end
     ne.eventresponder["mbtn_left_up"] =
         function () 
-	    if state.rightTC_trem == 0 then
-		state.rightTC_trem = 1
-	    elseif state.rightTC_trem == 1 then
-		state.rightTC_trem = 2
-	    elseif state.rightTC_trem == 2 then
+	    if state.rightTC_trem == 2 then
 		state.rightTC_trem = 0
+	    else
+		state.rightTC_trem = state.rightTC_trem + 1
 	    end
 	end
 
@@ -2171,10 +2172,8 @@ function osc_init()
         function () 
 	    if state.rightTC_trem == 0 then
 		state.rightTC_trem = 2
-	    elseif state.rightTC_trem == 1 then
-		state.rightTC_trem = 0
-	    elseif state.rightTC_trem == 2 then
-		state.rightTC_trem = 1
+	    else
+		state.rightTC_trem = state.rightTC_trem - 1
 	    end
 	end
 
