@@ -63,10 +63,6 @@
               display: none;
           }
           
-          .comments-hidden #container.ytd-masthead {
-              display: none;
-          }
-          
           .comments-hidden ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
               display: none;
           }
