@@ -2008,10 +2008,10 @@ function osc_init()
         else
             if string.find(vidname, 'watch', 1, true) then
                 show_message("Opening Youtube Comments")
-                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://youtube.com/"..vidname.."/", "--qt-arg", "geometry", "580x750")
+                mp.commandv("run", "qutebrowser", "https://youtube.com/"..vidname.."/", "--qt-arg", "geometry", "580x750")
             else
                 show_message("Opening Twitch Chat")
-                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://twitch.tv/"..vidname.."/chat", "--qt-arg", "geometry", "580x750")
+                mp.commandv("run", "qutebrowser", "https://twitch.tv/"..vidname.."/chat", "--qt-arg", "geometry", "580x750")
             end
         end
         end
@@ -2910,10 +2910,10 @@ mp.add_key_binding("shift+c", "open_chat", function ()
         else
             if string.find(vidname, 'watch', 1, true) then
                 show_message("Opening Youtube Comments")
-                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://youtube.com/"..vidname.."/", "--qt-arg", "geometry", "580x750")
+                mp.commandv("run", "qutebrowser", "https://youtube.com/"..vidname.."/", "--qt-arg", "geometry", "580x750")
             else
                 show_message("Opening Twitch Chat")
-                mp.commandv("run", "org.qutebrowser.qutebrowser", "https://twitch.tv/"..vidname.."/chat", "--qt-arg", "geometry", "580x750")
+                mp.commandv("run", "qutebrowser", "https://twitch.tv/"..vidname.."/chat", "--qt-arg", "geometry", "580x750")
             end
         end
         end)
